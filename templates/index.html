@@ -17,7 +17,7 @@
     <!-- --------- FAVICON ---------- -->
     <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
 
-    <script src="{% static 'js/main.js' %}" type="text/javascript"></script>
+   
 
 
     <title>Portfolio | Rajesh</title>
@@ -42,6 +42,10 @@
                         <div class="circle"></div>
                     </li>
                     <li class="nav_list">
+                        <a href="#skills" class="nav-link">Skills</a>
+                        <div class="circle"></div>
+                    </li>
+                    <li class="nav_list">
                         <a href="#projects" class="nav-link">Projects</a>
                         <div class="circle"></div>
                     </li>
@@ -49,10 +53,11 @@
                         <a href="#contact" class="nav-link">Contact</a>
                         <div class="circle"></div>
                     </li>
+                    
                 </ul>
             </div>
             <div class="nav-button">
-                <a href="{{ cv_link }}" download><button class="btn">Download CV <i class="uil uil-file-alt"></i></button></a>
+                <a href="{{ cv_link }}" download><button class="btn">Get Resume <i class="uil uil-file-alt"></i></button></a>
             </div>
             <div class="nav-menu-btn">
                 <i class="uil uil-bars" onclick="myMenuFunction()"></i>
@@ -77,7 +82,7 @@
                     </div>
                     <div class="featured-text-btn">
                         <a href="#contact"><button class="btn blue-btn">Hire Me</button></a>
-                        <a href="{{ cv_link }}" download><button class="btn">Download CV <i class="uil uil-file-alt"></i></button></a>
+                        <a href="{{ cv_link }}" download><button class="btn">Download Resume <i class="uil uil-file-alt"></i></button></a>
                     </div>
                     <div class="social_icons">
                         <a href="{{ instagram }}"><div class="icon"><i class="uil uil-instagram"></i></div></a>
@@ -99,88 +104,99 @@
             </section>
             
             <!-- -------------- ABOUT BOX ---------------- -->
+     
+
             <section class="section" id="about">
                 <div class="top-header">
                     <h1>About Me</h1>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="about-info">
-                            <h3>My introduction</h3>
-                            <p>I am well-versed in HTML, CSS and JavaScript , and other cutting edge
-                                frameworks and libraries,which allows me to implement interactive features.
-                                Additionally, I have experirence working with content management systems (CMS) like
-                                WordPress.
-                            </p>
-                            <div class="about-btn">
-                                <a href="{{ cv_link }}" download><button class="btn">Download CV <i class="uil uil-import"></i></button></a>
-                            </div>
-                        </div>
+            
+                <div class="about-info">
+                    <div class="about-left">
+                        <img src="{{ about_image }}" alt="About Image">
                     </div>
-                    <div class="col">
-                        <div class="skills-box">
-                            <div class="skills-header">
-                                <h3>Frontend</h3>
-                            </div>
-                            <div class="skills-list">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>Bootstrap</span>
-                                <span>JavaScript</span>
-                                <span>Vue</span>
-                                <span>React</span>
-                                <span>Angular</span>
-                            </div>
-                        </div>
-                        <div class="skills-box">
-                            <div class="skills-header">
-                                <h3>Backend</h3>
-                            </div>
-                            <div class="skills-list">
-                                <span>PHP</span>
-                                <span>JAVA</span>
-                                <span>Python</span>
-                                <span>C++</span>
-                            </div>
-                        </div>
-                        <div class="skills-box">
-                            <div class="skills-header">
-                                <h3>Database</h3>
-                            </div>
-                            <div class="skills-list">
-                                <span>MySQL</span>
-                                <span>PostgreSQL</span>
-                                <span>MongoDB</span>
-                            </div>
+                    <div class="about-right">
+                        <h3>My introduction</h3>
+                        <p>{{ about_description }}</p>
+                        <div class="about-btn">
+                            <a href="{{ cv_link }}" download>
+                                <button class="btn">Download Resume <i class="uil uil-import"></i></button>
+                            </a>
                         </div>
                     </div>
                 </div>
             </section>
 
+            <section class="section" id="skills">
+                <div class="top-header">
+                    <h1>Skills</h1>
+                </div>
+                <div class="skills-gallery">
+                    {% for skill in skills %}
+                    <div class="skill-card">
+                        <img src="{{ skill.image.url }}" alt="{{ skill.name }}">
+                        <p>{{ skill.name }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+                 
+
             <!-- -------------- PROJECT BOX ---------------- -->
+
+          
+
+            <!-- <section class="section" id="projects">
+                <div class="top-header">
+                    <h1>Projects</h1>
+                </div>
+                <div class="project-container">
+                    {% for project in projects %}
+                    <div class="project-box">
+                        <div class="project-image">
+                            <img src="{{ project.image.url }}" alt="{{ project.name }}">
+                        </div>
+                        <div class="project-content">
+                            <h3>{{ project.name }}</h3>
+                            <a href="{{ project.link }}" target="_blank" class="visit-btn">🔗 Visit Project</a>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p>No projects added yet.</p>
+                    {% endfor %}
+                </div>
+            </section> -->
+
+
 
             <section class="section" id="projects">
                 <div class="top-header">
                     <h1>Projects</h1>
                 </div>
                 <div class="project-container">
+                    {% for project in projects %}
                     <div class="project-box">
-                        <i class="uil uil-briefcase-alt"></i>
-                        <h3>Completed</h3>
-                        <label>15+ Finished Projects</label>
+                        <div class="project-image">
+                            <img src="{{ project.image.url }}" alt="{{ project.name }}">
+                        </div>
+                        <div class="project-content">
+                            <h3>{{ project.name }}</h3>
+                            <a href="{{ project.link }}" target="_blank" class="visit-btn">🔗 Visit Project</a>
+                            {% if project.github_link %}
+                            <a href="{{ project.github_link }}" target="_blank" class="github-link">
+                                <i class="uil uil-github-alt"></i> Source Code
+                            </a>
+                            {% endif %}
+                        </div>
                     </div>
-                    <div class="project-box">
-                        <i class="uil uil-users-alt"></i>
-                        <h3>Clients</h3>
-                        <label>25+ Happy Clients</label>
-                    </div>
-                    <div class="project-box">
-                        <i class="uil uil-award"></i>
-                        <h3>Experience</h3>
-                        <label>7+ Years in the field</label>
-                    </div>
+                    {% empty %}
+                    <p>No projects added yet.</p>
+                    {% endfor %}
                 </div>
             </section>
+            
+
+            
 
             <!-- -------------- CONTACT BOX ---------------- -->
 
@@ -193,26 +209,42 @@
                     <div class="col">
                         <div class="contact-info">
                             <h2>Find Me <i class="uil uil-corner-right-down"></i></h2>
-                            <p><i class="uil uil-envelope"></i> Email: john@doe.com</p>
-                            <p><i class="uil uil-phone"></i> Tel: +250 708 770 000</p>
+                            <p><i class="uil uil-envelope"></i> Email: {{ contact_info.email }}</p>
+                            <p><i class="uil uil-phone"></i> Phone No: {{ contact_info.phone }}</p>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="form-control">
-                            <div class="form-inputs">
-                                <input type="text" class="input-field" placeholder="Name">
-                                <input type="text" class="input-field" placeholder="Email">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-control">
+                                <div class="form-inputs">
+                                    <input type="text" class="input-field" placeholder="Name" name="name" required>
+                                    <input type="email" class="input-field" placeholder="Email" name="email" required>
+                                </div>
+                                <div class="text-area">
+                                    <textarea name="message" placeholder="Message" required></textarea>
+                                </div>
+                                <div class="form-button">
+                                    <button type="submit" class="btn">Send <i class="uil uil-message"></i></button>
+                                </div>
                             </div>
-                            <div class="text-area">
-                                <textarea placeholder="Message"></textarea>
-                            </div>
-                            <div class="form-button">
-                                <button class="btn">Send <i class="uil uil-message"></i></button>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
+                {% if messages %}
+                    {% for message in messages %}
+                        <p style="color: green;">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
             </section>
+            
+
+
+
+
+
+
+
 
         </main>
 
@@ -229,6 +261,9 @@
                     </li>
                     <li class="footer_menu_list">
                         <a href="#about">About</a>
+                    </li>
+                    <li class="footer_menu_list">
+                        <a href="#skills">Skills</a>
                     </li>
                     <li class="footer_menu_list">
                         <a href="#projects">Projects</a>
@@ -261,9 +296,8 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <!-- ----- MAIN JS ----- -->
-    <!-- <script src="assets/js/main.js"></script> -->
-    <script src="{% static 'js/main.js' %}" type="text/javascript"></script>
-
+   
+    <script src="{% static 'js/main.js/' %}"></script>
 </body>
 
 </html>
