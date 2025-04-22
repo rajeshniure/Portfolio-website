@@ -31,15 +31,6 @@ function myMenuFunction(){
   }
   
   
-  /* ----- TYPING EFFECT ----- */
-  // var typingEffect = new Typed(".typedText",{
-  //   strings : ["Rajesh Niure"],
-  //   loop : true,
-  //   typeSpeed : 100, 
-  //   backSpeed : 80,
-  //   backDelay : 2000
-  // })
-  
   
   /* ----- ## -- SCROLL REVEAL ANIMATION -- ## ----- */
   const sr = ScrollReveal({
@@ -60,6 +51,8 @@ function myMenuFunction(){
   
   /* -- PROJECT BOX -- */
   sr.reveal('.project-box',{interval: 200})
+
+  
   
   /* -- HEADINGS -- */
   sr.reveal('.top-header',{})
@@ -77,7 +70,7 @@ function myMenuFunction(){
   srLeft.reveal('.about-info',{delay: 100})
   srLeft.reveal('.contact-info',{delay: 100})
   
-  /* -- ABOUT SKILLS & FORM BOX -- */
+  /* --  SKILLS & FORM BOX -- */
   const srRight = ScrollReveal({
   origin: 'right',
   distance: '80px',
@@ -85,9 +78,8 @@ function myMenuFunction(){
   reset: true
   })
   
-  srRight.reveal('.skills-box',{delay: 100})
+  srRight.reveal('.skills-gallery',{delay: 100})
   srRight.reveal('.form-control',{delay: 100})
-  
   
   
   /* ----- CHANGE ACTIVE LINK ----- */
@@ -115,3 +107,7 @@ function myMenuFunction(){
   }
   
   window.addEventListener('scroll', scrollActive)
+
+
+
+

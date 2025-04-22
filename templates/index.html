@@ -53,9 +53,10 @@
                         <a href="#contact" class="nav-link">Contact</a>
                         <div class="circle"></div>
                     </li>
-                    
                 </ul>
             </div>
+
+
             <div class="nav-button">
                 <a href="{{ cv_link }}" download><button class="btn">Get Resume <i class="uil uil-file-alt"></i></button></a>
             </div>
@@ -84,10 +85,27 @@
                         <a href="#contact"><button class="btn blue-btn">Hire Me</button></a>
                         <a href="{{ cv_link }}" download><button class="btn">Download Resume <i class="uil uil-file-alt"></i></button></a>
                     </div>
-                    <div class="social_icons">
+                    <!-- <div class="social_icons">
                         <a href="{{ instagram }}"><div class="icon"><i class="uil uil-instagram"></i></div></a>
                         <a href="{{ linkedin }}"><div class="icon"><i class="uil uil-linkedin-alt"></i></div></a>
                         <a href="{{ github }}"><div class="icon"><i class="uil uil-github-alt"></i></div></a>
+                    </div> -->
+                    <div class="social_icons">
+                        <a href="{{ instagram }}" class="social_icon" target="_blank">
+                            <div class="icon instagram">
+                                <i class="uil uil-instagram"></i>
+                            </div>
+                        </a>
+                        <a href="{{ linkedin }}" class="social_icon" target="_blank">
+                            <div class="icon linkedin">
+                                <i class="uil uil-linkedin-alt"></i>
+                            </div>
+                        </a>
+                        <a href="{{ github }}" class="social_icon" target="_blank">
+                            <div class="icon github">
+                                <i class="uil uil-github-alt"></i>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div class="featured-image">
@@ -145,30 +163,6 @@
             <!-- -------------- PROJECT BOX ---------------- -->
 
           
-
-            <!-- <section class="section" id="projects">
-                <div class="top-header">
-                    <h1>Projects</h1>
-                </div>
-                <div class="project-container">
-                    {% for project in projects %}
-                    <div class="project-box">
-                        <div class="project-image">
-                            <img src="{{ project.image.url }}" alt="{{ project.name }}">
-                        </div>
-                        <div class="project-content">
-                            <h3>{{ project.name }}</h3>
-                            <a href="{{ project.link }}" target="_blank" class="visit-btn">🔗 Visit Project</a>
-                        </div>
-                    </div>
-                    {% empty %}
-                    <p>No projects added yet.</p>
-                    {% endfor %}
-                </div>
-            </section> -->
-
-
-
             <section class="section" id="projects">
                 <div class="top-header">
                     <h1>Projects</h1>
@@ -274,9 +268,21 @@
                 </ul>
             </div>
             <div class="footer-social-icons">
-                <a href="https://www.instagram.com/raj_niure/"> <div class="icon"><i class="uil uil-instagram"></i></div></a>
-                <a href="https://www.linkedin.com/in/rajeshniure/"><div class="icon"><i class="uil uil-linkedin-alt"></i></div></a>
-                <a href="https://github.com/rajeshniure"><div class="icon"><i class="uil uil-github-alt"></i></div></a>
+                <a href="{{ instagram }}" class="social_icon" target="_blank">
+                    <div class="icon instagram">
+                        <i class="uil uil-instagram"></i>
+                    </div>
+                </a>
+                <a href="{{ linkedin }}" class="social_icon" target="_blank">
+                    <div class="icon linkedin">
+                        <i class="uil uil-linkedin-alt"></i>
+                    </div>
+                </a>
+                <a href="{{ github }}" class="social_icon" target="_blank">
+                    <div class="icon github">
+                        <i class="uil uil-github-alt"></i>
+                    </div>
+                </a>
             </div>
             <div class="bottom-footer">
                 <p>Copyright &copy; <a href="#home" style="text-decoration: none;">Rajesh Niure</a> - All rights reserved

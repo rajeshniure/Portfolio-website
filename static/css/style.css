@@ -206,7 +206,7 @@ nav{
 .featured-text-btn>.blue-btn:hover{
     background: var(--first-color-hover);
 }
-.social_icons{
+/* .social_icons{
     display: flex;
     margin-top: 5em;
     gap: 30px;
@@ -223,7 +223,73 @@ nav{
 }
 .icon:hover{
     color: var(--first-color);
+} */
+
+/* Social Icons Container */
+.social_icons {
+    display: flex;
+    justify-content: flex-start;  
+    margin-top: 20px;  
+    gap: 15px;  
 }
+
+/* General Icon Style */
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;  
+    height: 40px;  
+    border-radius: 50%;
+    background-color: transparent;  
+    
+    border: 2px solid #ddd;  
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Icon Style: On Hover */
+.icon:hover {
+    transform: scale(1.1);  
+    border-color: transparent;  
+}
+
+/* Icon Color */
+.icon i {
+    font-size: 20px;  
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+/* Instagram Icon */
+.instagram:hover {
+    background-color: #E4405F;
+}
+
+.instagram:hover i {
+    color: #fff;
+}
+
+/* LinkedIn Icon */
+.linkedin:hover {
+    background-color: #0077B5;
+}
+
+.linkedin:hover i {
+    color: #fff;
+}
+
+/* GitHub Icon */
+.github:hover {
+    background-color: #333;
+}
+
+.github:hover i {
+    color: #fff;
+}
+
+
 
 /* ----- FEATURED IMAGE BOX ----- */
 .featured-image{
@@ -311,19 +377,6 @@ h3{
 /* ----- ABOUT INFO ----- */
 
 
-/* .about-info{
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-block: 30px 70px;
-    padding-inline: 20px;
-    width: 100%;
-    background: var(--color-white);
-    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
-    border-radius: 20px;
-} */
-
 .about-info p{
     text-align: center;
     font-size: 15px;
@@ -396,7 +449,6 @@ h3{
 
 
 
-
 .skills-gallery {
     display: flex;
     flex-wrap: wrap;
@@ -448,17 +500,11 @@ h3{
 
 
 
-
-
-
-
-
-
 .project-container {
     display: flex;
     width: 100%;
     justify-content: center;
-    gap: 20px;
+    gap: 40px;
     flex-wrap: wrap;
     padding: 2rem 0;
 }
@@ -473,11 +519,16 @@ h3{
     border-radius: 20px;
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
     overflow: hidden;
-    transition: transform 0.3s ease;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    /* transform: scale(1); */
 }
 
 .project-box:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.02) !important;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.98);
+    
 }
 
 .project-image {
@@ -594,8 +645,6 @@ h3{
     color: #161616;
     z-index: 2;
 }
-
-
 
 
 
@@ -807,3 +856,6 @@ footer{
         width: 100%;
     }
 }
+
+
+
