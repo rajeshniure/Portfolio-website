@@ -908,10 +908,6 @@ footer{
         margin-bottom: 2em;
     }
 
-    
-
-
-
 
 
 
@@ -988,5 +984,37 @@ footer{
         gap: 15px;
         padding: 8px
     }
-   
+
+    /* .scroll-icon-box {
+        display: none;
+    } */
+
+    /* .featured-name p{  
+            font-size: 30px;
+    }   
+
+    .featured-text-card {
+        margin-bottom: 10px;
+    }
+    
+    .featured-text-card span{
+        font-size: 20px;
+    }
+
+    .featured-text-info p {
+        font-size: 16px;
+    }
+
+    .featured-text-btn button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    .social_icon .icon {
+        padding: 4px;
+    }
+
+    .scroll-icon-box p {
+        font-size: 14px;
+    } */
 }

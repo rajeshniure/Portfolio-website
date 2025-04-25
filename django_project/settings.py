@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure--m@pxyuh2hlw7sy1%pm40hf^&k)_33vgbdekdmb16!$$%(_ow6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['portfolio-website-y1te.onrender.com','rajeshniure.com.np', 'www.rajeshniure.com.np']
+ALLOWED_HOSTS = ['portfolio-website-y1te.onrender.com','rajeshniure.com.np', 'www.rajeshniure.com.np', 'localhost','127.0.0.1']
 
 
 # Application definition
