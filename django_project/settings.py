@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure--m@pxyuh2hlw7sy1%pm40hf^&k)_33vgbdekdmb16!$$%(_ow6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['rajeshniure.com.np', 'www.rajeshniure.com.np']
+ALLOWED_HOSTS = ['yourproject.onrender.com','rajeshniure.com.np', 'www.rajeshniure.com.np']
 
 
 # Application definition
@@ -136,4 +136,10 @@ EMAIL_HOST_USER = 'rajeshniure567@gmail.com'
 EMAIL_HOST_PASSWORD = 'vvrp dqfj fchz wdev'   
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
+
+MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    
+]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
