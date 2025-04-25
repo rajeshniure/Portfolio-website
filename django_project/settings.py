@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure--m@pxyuh2hlw7sy1%pm40hf^&k)_33vgbdekdmb16!$$%(_ow6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['yourproject.onrender.com','rajeshniure.com.np', 'www.rajeshniure.com.np']
+ALLOWED_HOSTS = ['portfolio-django.onrender.com','rajeshniure.com.np', 'www.rajeshniure.com.np']
 
 
 # Application definition
@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'django_project.urls'
@@ -119,6 +120,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -137,9 +140,5 @@ EMAIL_HOST_PASSWORD = 'vvrp dqfj fchz wdev'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
-MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    
-]
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
