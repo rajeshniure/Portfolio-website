@@ -133,7 +133,7 @@ nav{
 .active-link{
     position: relative;
     color: var(--first-color);
-    transition: .3;
+    transition: .3s;
 }
 .active-link::after{
     content: '';
@@ -718,13 +718,26 @@ footer{
     row-gap: 30px;
     background: #F8F8F8;
     padding-block: 40px 60px;
+    
 }
 .top-footer p{
     font-size: 25px;
     font-weight: 600;
 }
+
 .middle-footer .footer-menu{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    gap: 15px;
+   
+    
 }
 .footer_menu_list{
     list-style: none;
@@ -753,6 +766,10 @@ footer{
     .image, .image img{
         width: 320px;
         height: 320px;
+    }
+
+    .active-link::after {
+        display: none;
     }
 }
 
@@ -838,6 +855,37 @@ footer{
         width: 80%;
     }
 
+
+
+
+
+    
+
+    .skill-card {
+        width: 120px;
+        height: 135px;
+        padding: 8px;
+        
+    }
+
+    .skill-card img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .skill-card p {
+        font-size: 17px;
+    }
+
+    .skills-gallery {
+        gap: 25px;
+        padding: 8px;
+        width: 100%;
+    }
+
+
+
+
 }
 
 /* ----- MEDIA QUERY == 540px / RESPONSIVE ----- */
@@ -855,7 +903,90 @@ footer{
     .input-field{
         width: 100%;
     }
+     .social_icons{
+        margin-top: 1em;
+        margin-bottom: 2em;
+    }
+
+    
+
+
+
+
+
+
+    .skill-card {
+        width: 110px;
+        height: 120px;
+        padding: 8px;
+        
+    }
+
+    .skill-card img {
+        width: 65px;
+        height: 65px;
+    }
+
+    .skill-card p {
+        font-size: 15px;
+    }
+
+    .skills-gallery {
+        gap: 20px;
+        padding: 8px;
+        width: 100%;
+    }
+
+    
+    
 }
+    
 
 
 
+
+/* 
+@media (max-width: 768px) {
+    .skill-card {
+        width: 120px;
+        height: 140px;
+        padding: 8px;
+    }
+
+    .skill-card img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .skill-card p {
+        font-size: 16px;
+    }
+
+    .skills-gallery {
+        gap: 20px;
+        padding: 10px;
+    }
+} */
+
+
+
+@media (max-width: 480px) {
+    .skill-card {
+        width: 100px;
+        height: 110px;
+        padding: 8px;
+        
+    }
+
+    .skill-card img {
+        width: 60px;
+        height: 60px;
+    }
+
+
+    .skills-gallery {
+        gap: 15px;
+        padding: 8px
+    }
+   
+}

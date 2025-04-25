@@ -8,6 +8,23 @@ function myMenuFunction(){
       menuBtn.className = "nav-menu";
     }
   }
+
+
+
+
+
+  document.querySelectorAll('.nav-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var menu = document.getElementById("myNavMenu");
+      if (menu.classList.contains("responsive")) {
+        menu.className = "nav-menu";
+      }
+    });
+  });
+
+
+
+
   
   /* ----- ADD SHADOW ON NAVIGATION BAR WHILE SCROLLING ----- */
   window.onscroll = function() {headerShadow()};
