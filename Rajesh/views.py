@@ -18,7 +18,7 @@
 
 
 from django.shortcuts import render
-from .models import Profile, Skill,ContactInfo, ContactMessage, Project
+from .models import Profile, Skill,ContactInfo, ContactMessage, Project,Certification
 from django.core.mail import EmailMessage
 from django.contrib import messages
 from django.shortcuts import redirect
@@ -34,6 +34,8 @@ def home(request):
     projects = Project.objects.all()
     
     contact_info = ContactInfo.objects.first()
+    
+    certifications = Certification.objects.all()
     
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -58,9 +60,6 @@ def home(request):
             messages.success(request, "Your message has been sent successfully!")
             return redirect('home')
     
-    
-    
-
 
     context = {
         "name": profile.name,
@@ -76,6 +75,7 @@ def home(request):
         "skills": skills,
         "contact_info": contact_info,
         "projects": projects, 
+        "certifications": certifications,
     }
     return render(request, 'index.html', context)
 

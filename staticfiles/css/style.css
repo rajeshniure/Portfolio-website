@@ -28,6 +28,7 @@
 /* ----- SMOOTH SCROLL ----- */
 html{
     scroll-behavior: smooth;
+    
 }
 
 /* ----- CHANGE THE SCROLL BAR DESIGN ----- */
@@ -75,6 +76,7 @@ i{
 /* ------- BASE -------- */
 body{
     background: var(--body-color);
+    
 }
 .container{
     width: 100%;
@@ -123,6 +125,7 @@ nav{
     padding-inline: 15px;
     margin-inline: 20px;
 }
+
 .nav-menu-btn{
     display: none;
 }
@@ -172,13 +175,17 @@ nav{
     width: 50%;
     padding-left: 20px;
 }
+
+.featured-text-card{
+    margin-bottom: 20px;
+}
 .featured-text-card span{
     background: var(--third-color);
     color: var(--color-white);
     padding: 3px 8px;
     font-size: 24px;
     font-weight: 600;
-    border-radius: 5px;
+    border-radius: 5px; 
 }
 .featured-name{
     font-size: 50px;
@@ -758,6 +765,74 @@ footer{
 }
 
 
+
+
+.certification-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-direction: row;
+    width: 100%; /* always row */
+}
+
+.certification-card {
+    width: 220px;
+    background: #fff;
+    padding-bottom: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.certification-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.certification-image img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.certification-content h3 {
+    margin: 0.8rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.certification-btn {
+    display: inline-block;
+    background-color: #a459ff;
+    color: #fff;
+    padding: 6px 14px;
+    font-size: 13px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.certification-btn:hover {
+    background-color: #6f00ff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /* ----- MEDIA QUERY == 1024px / RESPONSIVE ----- */
 @media only screen and (max-width: 1024px){
     .featured-text{
@@ -886,11 +961,38 @@ footer{
 
 
 
+    .certification-card {
+        width: 140px;
+        margin-right: 0;
+        padding-bottom: 2px;
+    }
+
+    .certification-image img {
+        height: 110px;
+        padding-bottom: 0px;
+        
+    }
+
+    .certification-content h3 {
+        font-size: 0.7rem;
+        margin: 0;
+    }
+
+    .certification-btn {
+        font-size: 10px;
+        padding: 4px 6px;
+    }
+
+
+
+
 }
 
 /* ----- MEDIA QUERY == 540px / RESPONSIVE ----- */
 
 @media only screen and (max-width: 540px){
+
+
     .featured-name{
         font-size: 40px;
     }
@@ -907,10 +1009,6 @@ footer{
         margin-top: 1em;
         margin-bottom: 2em;
     }
-
-    
-
-
 
 
 
@@ -937,36 +1035,31 @@ footer{
         width: 100%;
     }
 
-    
-    
+    .certification-card {
+        width: 110px;
+        margin-right: 0;
+        padding-bottom: 2px;
+    }
+
+    .certification-image img {
+        height: 80px;
+        padding-bottom: 0px;
+        
+    }
+
+    .certification-content h3 {
+        font-size: 0.6rem;
+        margin: 0;
+    }
+
+    .certification-btn {
+        font-size: 8px;
+        padding: 2px 4px;
+    }
+
+
 }
     
-
-
-
-
-/* 
-@media (max-width: 768px) {
-    .skill-card {
-        width: 120px;
-        height: 140px;
-        padding: 8px;
-    }
-
-    .skill-card img {
-        width: 70px;
-        height: 70px;
-    }
-
-    .skill-card p {
-        font-size: 16px;
-    }
-
-    .skills-gallery {
-        gap: 20px;
-        padding: 10px;
-    }
-} */
 
 
 
@@ -975,7 +1068,6 @@ footer{
         width: 100px;
         height: 110px;
         padding: 8px;
-        
     }
 
     .skill-card img {
@@ -988,5 +1080,37 @@ footer{
         gap: 15px;
         padding: 8px
     }
-   
+
+    .scroll-icon-box {
+        display: none;
+        
+    }
+
+
+
+    .certification-container {
+        gap: 2rem; 
+        
+
+    }
+
 }
+
+
+
+
+/* -------------------- Responsive -------------------- */
+
+/* @media (max-width: 1024px) {
+    .certification-card {
+        width: 200px;
+    }
+}
+
+@media (max-width: 900px) {
+    .certification-card {
+        width: 180px;
+    }
+} */
+
+
