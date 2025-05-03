@@ -165,6 +165,9 @@ nav {
     display: flex;
     align-items: center;
 }
+.nav-logo a {
+    text-decoration: none;
+}
 
 .nav-name {
     font-size: 1.6rem;
@@ -390,6 +393,11 @@ nav {
 }
 
 /* Top header */
+
+.title-name{
+    text-decoration: none;
+}
+
 .top-header {
     text-align: center;
     margin-bottom: 2.5rem;
@@ -774,6 +782,11 @@ footer {
 [data-theme="dark"] footer {
     background: #222;
 }
+
+.top-footer a {
+    text-decoration: none;
+}
+
 
 .top-footer p {
     font-size: 1.4rem;
