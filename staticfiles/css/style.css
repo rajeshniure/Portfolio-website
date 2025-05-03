@@ -1036,13 +1036,13 @@ footer{
     }
 
     .certification-card {
-        width: 110px;
+        width: 135px;
         margin-right: 0;
         padding-bottom: 2px;
     }
 
     .certification-image img {
-        height: 80px;
+        height: 100px;
         padding-bottom: 0px;
         
     }
@@ -1087,30 +1087,8 @@ footer{
     }
 
 
-
-    .certification-container {
-        gap: 2rem; 
-        
-
-    }
-
 }
 
 
-
-
-/* -------------------- Responsive -------------------- */
-
-/* @media (max-width: 1024px) {
-    .certification-card {
-        width: 200px;
-    }
-}
-
-@media (max-width: 900px) {
-    .certification-card {
-        width: 180px;
-    }
-} */
 
 
