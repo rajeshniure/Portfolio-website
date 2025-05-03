@@ -50,7 +50,7 @@
                         <div class="circle"></div>
                     </li>
                     <li class="nav_list">
-                        <a href="#certifications" class="nav-link">Certificate</a>
+                        <a href="#certifications" class="nav-link">Certificates</a>
                         <div class="circle"></div>
                     </li>
                     <li class="nav_list">
@@ -64,6 +64,12 @@
             <div class="nav-button">
                 <a href="{{ cv_link }}" download><button class="btn">Get Resume <i class="uil uil-file-alt"></i></button></a>
             </div>
+
+            <div class="nav-theme-btn">
+                <i class="uil uil-moon" id="theme-button"></i>
+            </div>
+
+
             <div class="nav-menu-btn">
                 <i class="uil uil-bars" onclick="myMenuFunction()"></i>
             </div>
@@ -195,26 +201,26 @@
             
 <!-- -------------- CERTIFICATION SECTION ---------------- -->
 
-<section class="section" id="certifications">
-    <div class="top-header">
-        <h1>Certifications</h1>
-    </div>
-    <div class="certification-container">
-        {% for certification in certifications %}
-        <div class="certification-card">
-            <div class="certification-image">
-                <img src="{{ certification.image.url }}" alt="{{ certification.title }}">
-            </div>
-            <div class="certification-content">
-                <h3>{{ certification.title }}</h3>
-                <a href="{{ certification.image.url }}" target="_blank" class="certification-btn">🔎 View Certificate</a>
-            </div>
-        </div>
-        {% empty %}
-        <p>No certifications added yet.</p>
-        {% endfor %}
-    </div>
-</section>
+            <section class="section" id="certifications">
+                <div class="top-header">
+                    <h1>Certifications</h1>
+                </div>
+                <div class="certification-container">
+                    {% for certification in certifications %}
+                    <div class="certification-card">
+                        <div class="certification-image">
+                            <img src="{{ certification.image.url }}" alt="{{ certification.title }}">
+                        </div>
+                        <div class="certification-content">
+                            <h3>{{ certification.title }}</h3>
+                            <a href="{{ certification.image.url }}" target="_blank" class="certification-btn">🔎 View Certificate</a>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p>No certifications added yet.</p>
+                    {% endfor %}
+                </div>
+            </section>
             
 
             <!-- -------------- CONTACT BOX ---------------- -->
