@@ -129,13 +129,13 @@ html {
     font-size: 1.5rem;
     color: var(--text-color-second);
     cursor: pointer;
-    padding: 0.2rem;
+    padding: 0.3rem;
     border-radius: 50%;
     transition: var(--transition);
 }
 
 .nav-theme-btn i:hover {
-    background: var(--shadow-color);
+    transform: scale(1.2);
 }
 
 /* Container */
@@ -164,6 +164,9 @@ nav {
 .nav-logo {
     display: flex;
     align-items: center;
+}
+.nav-logo a {
+    text-decoration: none;
 }
 
 .nav-name {
@@ -390,6 +393,11 @@ nav {
 }
 
 /* Top header */
+
+.title-name{
+    text-decoration: none;
+}
+
 .top-header {
     text-align: center;
     margin-bottom: 2.5rem;
@@ -775,6 +783,11 @@ footer {
     background: #222;
 }
 
+.top-footer a {
+    text-decoration: none;
+}
+
+
 .top-footer p {
     font-size: 1.4rem;
     font-weight: 600;
@@ -867,9 +880,7 @@ footer {
         font-size: 0.7rem;
         padding: 0.3rem 0.6rem;
     }
-    /* .scroll-btn {
-        display: none;
-    } */
+    
 }
 
 /* 540px and below */
@@ -890,6 +901,9 @@ footer {
     .input-field {
         width: 100%;
         min-height: 2.5rem;
+    }
+    .scroll-btn {
+        display: none;
     }
 }
 
