@@ -5,6 +5,9 @@ set -e
 
 echo "Starting deployment process..."
 
+# Set production settings
+export DJANGO_SETTINGS_MODULE=django_project.settings_production
+
 # Install dependencies
 echo "Installing dependencies..."
 pip install -r requirements.txt
@@ -17,9 +20,9 @@ python optimize_images.py
 echo "Collecting static files..."
 python manage.py collectstatic --noinput
 
-# Compress static files
-echo "Compressing static files..."
-python manage.py compress --force
+# Disable compress for production
+echo "Skipping compression for production..."
+# python manage.py compress --force  # Commented out to avoid django-compressor issues
 
 # Apply migrations
 echo "Applying migrations..."

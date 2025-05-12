@@ -23,6 +23,7 @@ from django.core.mail import EmailMessage
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.views.decorators.cache import cache_page
+from django.conf import settings
 
 @cache_page(60 * 15)  # Cache this view for 15 minutes
 def home(request):
@@ -51,6 +52,7 @@ def home(request):
         "contact_info": contact_info,
         "projects": projects, 
         "certifications": certifications,
+        "installed_apps": settings.INSTALLED_APPS,
     }
     return render(request, 'index.html', context)
 

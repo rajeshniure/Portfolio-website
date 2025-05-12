@@ -1,5 +1,7 @@
 {% load static %}
+{% if 'compressor' in installed_apps %}
 {% load compress %}
+{% endif %}
 
 
 <!DOCTYPE html>
@@ -19,9 +21,13 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
     <!-- --------- CSS ---------- -->
+    {% if 'compressor' in installed_apps %}
     {% compress css %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% endcompress %}
+    {% else %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endif %}
 
     <!-- --------- FAVICON ---------- -->
     <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
@@ -359,9 +365,13 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <!-- ----- MAIN JS ----- -->
+    {% if 'compressor' in installed_apps %}
     {% compress js %}
     <script src="{% static 'js/main.js' %}" defer></script>
     {% endcompress %}
+    {% else %}
+    <script src="{% static 'js/main.js' %}" defer></script>
+    {% endif %}
 </body>
 
 </html>
