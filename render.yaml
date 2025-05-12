@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: portfolio-website
+    env: python
+    buildCommand: ./deploy.sh
+    startCommand: gunicorn django_project.wsgi:application
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+    autoDeploy: true 

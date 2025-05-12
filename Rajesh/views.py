@@ -18,49 +18,24 @@
 
 
 from django.shortcuts import render
-from .models import Profile, Skill,ContactInfo, ContactMessage, Project,Certification
+from .models import Profile, Skill, ContactInfo, ContactMessage, Project, Certification
 from django.core.mail import EmailMessage
 from django.contrib import messages
 from django.shortcuts import redirect
+from django.views.decorators.cache import cache_page
 
-
-
-
-
+@cache_page(60 * 15)  # Cache this view for 15 minutes
 def home(request):
+    # Skip caching for POST requests
+    if request.method == 'POST':
+        return handle_contact_form(request)
+    
     profile = Profile.objects.first()
     skills = Skill.objects.all()
-    
     projects = Project.objects.all()
-    
     contact_info = ContactInfo.objects.first()
-    
     certifications = Certification.objects.all()
     
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        message = request.POST.get('message')
-
-        if name and email and message:
-            # Save the message to DB
-            ContactMessage.objects.create(name=name, email=email, message=message)
-
-            # Compose the email
-            subject = f"New Contact Message from {name}"
-            body = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
-
-            email_msg = EmailMessage(
-                subject,
-                body,
-                to=['rajeshniure567@gmail.com'],  
-            )
-            email_msg.send()
-
-            messages.success(request, "Your message has been sent successfully!")
-            return redirect('home')
-    
-
     context = {
         "name": profile.name,
         "role": profile.role,
@@ -78,6 +53,33 @@ def home(request):
         "certifications": certifications,
     }
     return render(request, 'index.html', context)
+
+def handle_contact_form(request):
+    if request.method != 'POST':
+        return redirect('home')
+        
+    name = request.POST.get('name')
+    email = request.POST.get('email')
+    message = request.POST.get('message')
+
+    if name and email and message:
+        # Save the message to DB
+        ContactMessage.objects.create(name=name, email=email, message=message)
+
+        # Compose the email
+        subject = f"New Contact Message from {name}"
+        body = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
+
+        email_msg = EmailMessage(
+            subject,
+            body,
+            to=['rajeshniure567@gmail.com'],  
+        )
+        email_msg.send()
+
+        messages.success(request, "Your message has been sent successfully!")
+    
+    return redirect('home')
 
 
 

@@ -1,4 +1,5 @@
 {% load static %}
+{% load compress %}
 
 
 <!DOCTYPE html>
@@ -8,11 +9,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://unicons.iconscout.com">
+    
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="{% static 'css/style.css' %}" as="style">
+
     <!-- --------- UNICONS ---------- -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
     <!-- --------- CSS ---------- -->
+    {% compress css %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endcompress %}
 
     <!-- --------- FAVICON ---------- -->
     <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
@@ -120,7 +129,10 @@
                 </div>
                 <div class="featured-image">
                     <div class="image">
-                        <img src="{{ avatar_url }}" alt="avatar">
+                        <picture>
+                            <source srcset="{{ avatar_url|slice:":-4" }}.webp" type="image/webp">
+                            <img src="{{ avatar_url }}" alt="avatar" loading="lazy">
+                        </picture>
                     </div>
                 </div>
                 <div class="scroll-icon-box">
@@ -141,7 +153,10 @@
             
                 <div class="about-info">
                     <div class="about-left">
-                        <img src="{{ about_image }}" alt="About Image">
+                        <picture>
+                            <source srcset="{{ about_image|slice:":-4" }}.webp" type="image/webp">
+                            <img src="{{ about_image }}" alt="About Image" loading="lazy">
+                        </picture>
                     </div>
                     <div class="about-right">
                         <h3>Know Me Better</h3>
@@ -162,7 +177,16 @@
                 <div class="skills-gallery">
                     {% for skill in skills %}
                     <div class="skill-card">
-                        <img src="{{ skill.image.url }}" alt="{{ skill.name }}">
+                        {% if skill.image.url|slice:"-4:" == ".png" %}
+                            <picture>
+                                <source srcset="{{ skill.image.url|slice:":-4" }}.webp" type="image/webp">
+                                <img src="{{ skill.image.url }}" alt="{{ skill.name }}" loading="lazy">
+                            </picture>
+                        {% elif skill.image.url|slice:"-5:" == ".webp" %}
+                            <img src="{{ skill.image.url }}" alt="{{ skill.name }}" loading="lazy">
+                        {% else %}
+                            <img src="{{ skill.image.url }}" alt="{{ skill.name }}" loading="lazy">
+                        {% endif %}
                         <p>{{ skill.name }}</p>
                     </div>
                     {% endfor %}
@@ -181,7 +205,14 @@
                     {% for project in projects %}
                     <div class="project-box">
                         <div class="project-image">
-                            <img src="{{ project.image.url }}" alt="{{ project.name }}">
+                            {% if project.image.url|slice:"-4:" == ".png" %}
+                                <picture>
+                                    <source srcset="{{ project.image.url|slice:":-4" }}.webp" type="image/webp">
+                                    <img src="{{ project.image.url }}" alt="{{ project.name }}" loading="lazy">
+                                </picture>
+                            {% else %}
+                                <img src="{{ project.image.url }}" alt="{{ project.name }}" loading="lazy">
+                            {% endif %}
                         </div>
                         <div class="project-content">
                             <h3>{{ project.name }}</h3>
@@ -328,8 +359,9 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <!-- ----- MAIN JS ----- -->
-   
-    <script src="{% static 'js/main.js/' %}"></script>
+    {% compress js %}
+    <script src="{% static 'js/main.js' %}" defer></script>
+    {% endcompress %}
 </body>
 
 </html>
